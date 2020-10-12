@@ -1,0 +1,19 @@
+extends layout
+
+block index
+    div.wrapper
+        header.page-head
+            section.head-logo
+                span.logo-angles
+                    span.angle-yellow
+                        i.fa.fa-angle-down(aria-hidden='true')
+                    span.angle-orange
+                        i.fa.fa-angle-down(aria-hidden='true')
+                    span.angle-blue
+                        i.fa.fa-angle-down(aria-hidden='true')
+                h1.logo-text Todo
+        main.page-content
+            block content
+        footer.page-foot
+            small &copy; Copyright #{new Date().getFullYear()} Aram Petrosyan. All Rights Reserved
+    script(src="/javascripts/index.js")

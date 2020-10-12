@@ -1,0 +1,19 @@
+extends index
+
+block content
+    section.todo-box
+        form.todo-form(action="/", method="POST")
+            input.todo-input(type="text" name="task" placeholder="New one.." maxlength=50 autofocus)
+            input.submit-btn(type="submit" value="Add" disabled)
+        div.todos
+            ul.todo-list
+                each elem in list
+                    li.list-item= elem.task
+                        span.item-btns
+                            button.btn.btn-edit(onclick="editItem('"+ elem.id +"')")
+                                i.fa.fa-edit(aria-hidden="true")
+                            button.btn.btn-delete(onclick="deleteItem('"+ elem.id +"')")
+                                i.fa.fa-trash(aria-hidden="true")
+                else
+                    li.empty-item What you have to do?
+        
