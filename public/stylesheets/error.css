@@ -1,0 +1,17 @@
+.err-box {
+  margin: 30px 0;
+  padding: 0 10px;
+  color: rgb(37, 3, 3);
+  text-align: center;
+  word-wrap: normal;
+}
+
+.err-head {
+  font-size: 50px;
+}
+
+.err-body {
+  padding: 20px 0;
+  color: rgb(6, 48, 59);
+  font-size: 34px;
+}

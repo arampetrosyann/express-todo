@@ -1,0 +1,40 @@
+.spec-todo {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  width: 45%;
+  margin: auto 0;
+  padding: 8px;
+}
+
+.edit-head {
+  margin-top: 10px;
+  margin-bottom: 60px;
+  padding: 5px;
+  color: rgb(6, 48, 59);
+  font-size: 50px;
+  text-align: center;
+}
+
+.spec-form {
+  display: flex;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.done-btn {
+  flex-grow: 0;
+  font-size: 50px;
+  color: rgb(3, 97, 3);
+  transition: 0.2s;
+}
+
+.done-btn:hover {
+  color: rgb(38, 124, 80);
+}
+
+.done-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

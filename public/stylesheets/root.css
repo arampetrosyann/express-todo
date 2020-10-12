@@ -1,0 +1,15 @@
+:root {
+  --head-height: 68px;
+  --head-bg-color: rgb(50, 168, 107);
+  --head-text-color: rgb(255, 255, 255);
+  --head-box-shadow: 2px 5px 10px rgba(136, 137, 138, 0.5);
+
+  --content-bg-color: rgb(253, 254, 253);
+  --content-text-color: rgb(0, 0, 0);
+
+  --home-itembox-shadow: 2px 5px 4px rgba(0, 0, 0, 0.4);
+
+  --foot-height: 50px;
+  --foot-text-color: rgb(0, 0, 0);
+  --foot-box-shadow: 2px 5px 8px rgba(136, 137, 138, 0.2);
+}

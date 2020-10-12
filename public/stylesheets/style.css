@@ -1,0 +1,102 @@
+@import "./normalize.css";
+@import "./root.css";
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+@import "./home.css";
+@import "./edit.css";
+@import "./error.css";
+@import "./media.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
+.page-head {
+  grid-area: header;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: var(--head-height);
+  padding: 8px 20px;
+  box-shadow: var(--head-box-shadow);
+  color: var(--head-text-color);
+  background-color: var(--head-bg-color);
+  font-family: "Work Sans", sans-serif;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.head-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-angles {
+  margin: 0 10px;
+}
+
+.angle-yellow {
+  font-size: 35px;
+  color: rgb(249, 201, 101);
+}
+
+.angle-orange {
+  font-size: 40px;
+  color: rgb(251, 150, 72);
+}
+
+.angle-blue {
+  font-size: 45px;
+  color: rgb(72, 213, 253);
+}
+
+.logo-text {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.head-logo:hover .logo-text {
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.page-content {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 10px 14px 10px;
+  color: var(--content-text-color);
+  background-color: var(--content-bg-color);
+  background-image: url("/images/main-bg-img.png");
+  background-repeat: repeat;
+}
+
+.page-foot {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: var(--foot-height);
+  padding: 10px 20px;
+  border-top: 1px solid rgb(50, 168, 107, 0.3);
+  box-shadow: var(--foot-box-shadow);
+  color: var(--foot-text-color);
+  background-color: var(--content-bg-color);
+  font-family: "Work Sans", sans-serif;
+  z-index: 998;
+}
