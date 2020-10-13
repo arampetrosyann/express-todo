@@ -3,7 +3,7 @@ extends index
 block content
     section.spec-todo
         h3.edit-head Edit Todo
-        form.spec-form(action=`/edit/${inputValue.id}`, method="POST")
-            input.todo-input.edit-input(type="text" name="editTask" placeholder="Edit.." maxlength=50 value=inputValue.task autofocus)
-            button.btn.done-btn(type="sumbit")
+        form.spec-form(action=`/todo/${item.id}` method="POST")
+            input.todo-input.edit-input(type="text" name="editTask" placeholder="Edit.." value=item.task  maxlength=50 autofocus)
+            button.btn.done-btn(type="sumbit" onclick="updateTodo('"+ item.id +"')")
                 i.fa.fa-check-circle

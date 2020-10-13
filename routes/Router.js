@@ -5,36 +5,19 @@ const generateUniqueId = require("../public/javascripts/helpers/generateUniqueId
 
 const getId = generateUniqueId("do-");
 
-router
-  .get("/", (req, res) => {
-    res.render("home", { list: req.session.todos });
-  })
-  .post("/", (req, res) => {
-    const { task } = req.body;
-    const id = getId();
+router.get("/", (req, res) => {
+  res.render("home", { list: req.session.todos });
+});
 
-    const newTodo = { task, id };
+router.get("/edit", (req, res) => {
+  const todo = req.session.editTask;
 
-    req.session.todos.push(newTodo);
-
-    res.redirect("/");
-  })
-  .delete("/", (req, res) => {
-    remove(req.session.todos, (todo) => {
-      return todo.id === req.body.id;
-    });
-
-    res.end();
-  });
+  res.render("edit", { item: todo });
+});
 
 router
-  .get("/edit", (req, res) => {
-    const todo = req.session.editTask;
-
-    res.render("edit", { inputValue: todo });
-  })
-  .post("/edit", (req, res) => {
-    const todoId = req.body.id;
+  .get("/todo/:id", (req, res) => {
+    const todoId = req.params.id;
 
     const todo = find(req.session.todos, ["id", todoId]);
 
@@ -42,14 +25,35 @@ router
 
     res.send(JSON.stringify(todo));
   })
-  .post("/edit/:id", (req, res) => {
+  .post("/todo", (req, res) => {
+    const { task } = req.body;
+    const id = getId();
+
+    const newTodo = { task, id };
+
+    req.session.todos.push(newTodo);
+
+    res.send(JSON.stringify(newTodo));
+  })
+  .put("/todo/:id", (req, res) => {
     const todoId = req.params.id;
 
     const todo = find(req.session.todos, ["id", todoId]);
 
-    todo.task = req.body.editTask;
+    todo.task = req.body.editedTask;
 
-    res.redirect("/");
+    res.send(JSON.stringify(todo));
+  })
+  .delete("/todo/:id", (req, res) => {
+    const todoId = req.params.id;
+
+    const todo = find(req.session.todos, ["id", todoId]);
+
+    remove(req.session.todos, (todo) => {
+      return todo.id === todoId;
+    });
+
+    res.send(JSON.stringify(todo));
   });
 
 module.exports = router;

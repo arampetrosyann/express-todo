@@ -2,17 +2,17 @@ extends index
 
 block content
     section.todo-box
-        form.todo-form(action="/", method="POST")
+        form.todo-form(action="/todo", method="POST")
             input.todo-input(type="text" name="task" placeholder="New one.." maxlength=50 autofocus)
-            input.submit-btn(type="submit" value="Add" disabled)
+            input.submit-btn(type="submit" value="Add" onclick="addTodo()" disabled)
         div.todos
             ul.todo-list
                 each elem in list
                     li.list-item= elem.task
                         span.item-btns
-                            button.btn.btn-edit(onclick="editItem('"+ elem.id +"')")
+                            button.btn.btn-edit(onclick="editTodo('"+ elem.id +"')")
                                 i.fa.fa-edit(aria-hidden="true")
-                            button.btn.btn-delete(onclick="deleteItem('"+ elem.id +"')")
+                            button.btn.btn-delete(onclick="deleteTodo('"+ elem.id +"')")
                                 i.fa.fa-trash(aria-hidden="true")
                 else
                     li.empty-item What you have to do?

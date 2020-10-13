@@ -27,33 +27,49 @@ try {
   });
 } catch (error) {}
 
-const deleteItem = function (id) {
-  fetch(`/`, {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      id,
-    }),
-  }).then((response) => {
-    window.location.reload(true);
-  });
-};
+const addTodo = function () {
+  window.event.preventDefault();
 
-const editItem = function (id) {
-  fetch("/edit", {
+  fetch(`/todo`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      id,
+      task: todoInput.value,
     }),
+  }).then((response) => {
+    window.location.pathname = "/";
+  });
+};
+
+const editTodo = function (id) {
+  fetch(`/todo/${id}`, {
+    method: "GET",
   }).then((response) => {
     window.location.pathname = "/edit";
   });
 };
 
-const updateItem = function (id) {
-  fetch("/edit/id", {
+const updateTodo = function (id) {
+  window.event.preventDefault();
+
+  fetch(`/todo/${id}`, {
     method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      editedTask: editInput.value,
+    }),
+  }).then((response) => {
+    window.location.pathname = "/";
+  });
+};
+
+const deleteTodo = function (id) {
+  fetch(`/todo/${id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      text: todoInput.value,
+    }),
   }).then((response) => {
     window.location.pathname = "/";
   });
